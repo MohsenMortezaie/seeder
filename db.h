@@ -101,13 +101,13 @@ public:
   }
   
   bool IsGood() const {
-      return true;
+//      return true;
     if (ip.GetPort() != GetDefaultPort()) return false;
     if (!(services & NODE_NETWORK)) return false;
     if (!ip.IsRoutable()) return false;
     if (clientVersion && clientVersion < REQUIRE_VERSION) return false;
     if (blocks && blocks < GetRequireHeight()) return false;
-
+return true;
     if (total <= 3 && success * 2 >= total) return true;
 
     if (stat2H.reliability > 0.85 && stat2H.count > 2) return true;
